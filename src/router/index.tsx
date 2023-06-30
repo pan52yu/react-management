@@ -24,9 +24,17 @@ const routes = [
             {
                 path: "/page2",
                 element: withLoadingComponent(lazy(() => import('@/views/Page2')))
+            },
+            {
+                path: "/page3/page301",
+                element: withLoadingComponent(lazy(() => import('@/views/Page3/Page301')))
             }
         ]
     },
+    {
+        path: "*",
+        element: <h1>404</h1>
+    }
     /*    {
             path: '/home',
             element: <Home/>
