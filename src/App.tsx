@@ -1,6 +1,5 @@
-import {Link, useRoutes} from "react-router-dom";
+import {useRoutes} from "react-router-dom";
 import routes from "@/router";
-import {Button} from "antd";
 
 function App() {
 
@@ -9,15 +8,6 @@ function App() {
 
     return (
         <div className="App">
-            <Button type={"primary"}>
-                <Link to={"/home"}>Home</Link>
-            </Button>
-            <Button type={"dashed"}>
-                <Link to={"/about"}>About</Link>
-            </Button>
-            <Button type={"dashed"}>
-                <Link to={"/user"}>User</Link>
-            </Button>
             {element}
         </div>
     )
