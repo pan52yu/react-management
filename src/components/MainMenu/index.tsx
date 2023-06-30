@@ -1,9 +1,14 @@
 import {Menu, MenuProps} from "antd";
-import {useState} from "react";
+import React, {useState} from "react";
 import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from "@ant-design/icons";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
-type MenuItem = Required<MenuProps>['items'][number];
+interface MenuItem {
+    label: string;
+    key: string;
+    icon?: React.ReactNode;
+    children?: MenuItem[];
+}
 
 const items: MenuItem[] = [
     {
@@ -59,20 +64,29 @@ const items: MenuItem[] = [
 
 const MainMenu = () => {
     const navigate = useNavigate();
-    const [openKeys, setOpenKeys] = useState([""]);
+    const route = useLocation();
 
+    const defaultOpenKeys: string = items.find(item => item?.children?.find(child => child.key === route.pathname))?.key || '';
+
+    // 默认展开的菜单项
+    const [openKeys, setOpenKeys] = useState([defaultOpenKeys]);
+
+    // 菜单展开收起时触发
     const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
         setOpenKeys([keys[keys.length - 1]])
     };
 
+    // 菜单点击时触发
     const menuClick = (menuItem: { key: string }) => {
         navigate(menuItem.key)
     }
+
+    console.log(useLocation())
     return (
         <Menu
             onClick={menuClick}
             theme="dark"
-            defaultSelectedKeys={['/page1']}
+            defaultSelectedKeys={[route.pathname]}
             mode="inline"
             openKeys={openKeys}
             onOpenChange={onOpenChange}
