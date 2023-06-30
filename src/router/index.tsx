@@ -1,6 +1,12 @@
 import {Navigate} from "react-router-dom";
+import React, {lazy, Suspense} from "react";
 import Home from "@/views/Home.tsx";
-import About from "@/views/About.tsx";
+
+const withLoadingComponent = (Component: React.LazyExoticComponent<() => JSX.Element>) => (
+    <Suspense fallback={<h1>Loading...</h1>}>
+        <Component/>
+    </Suspense>
+)
 
 const routes = [
     {
@@ -13,7 +19,11 @@ const routes = [
     },
     {
         path: '/about',
-        element: <About/>
+        element: withLoadingComponent(lazy(() => import('@/views/About')))
+    },
+    {
+        path: "/user",
+        element: withLoadingComponent(lazy(() => import('@/views/User')))
     }
 ]
 

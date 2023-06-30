@@ -15,6 +15,9 @@ function App() {
             <Button type={"dashed"}>
                 <Link to={"/about"}>About</Link>
             </Button>
+            <Button type={"dashed"}>
+                <Link to={"/user"}>User</Link>
+            </Button>
             {element}
         </div>
     )
