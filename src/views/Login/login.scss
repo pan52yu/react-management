@@ -1,0 +1,33 @@
+.loginbox {
+  .ant-input,
+  .ant-input-affix-wrapper {
+    background-color: rgba(255, 255, 255, 0);
+    border-color: #1890ff;
+    color: #fff;
+
+    .ant-input-password-icon,
+    .ant-input-password-icon:hover {
+      color: #1890ff;
+    }
+
+    &::-webkit-input-placeholder {
+      color: rgba(24, 144, 255, 0.6);
+    }
+  }
+
+  .captchaBox {
+    display: flex;
+    align-items: center;
+
+    .catheImg {
+      img {
+        height: 38px;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .loginBtn {
+    width: 100%;
+  }
+}

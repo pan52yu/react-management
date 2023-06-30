@@ -81,7 +81,6 @@ const MainMenu = () => {
         navigate(menuItem.key)
     }
 
-    console.log(useLocation())
     return (
         <Menu
             onClick={menuClick}
