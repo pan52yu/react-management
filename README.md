@@ -1,3 +1,3 @@
 ## React-management
 
-> React18 + Vite + Redux + React-Router + Antd + Sass 
+> React18 + Vite + TS + Redux + React-Router + Antd + Sass 
